@@ -6,6 +6,10 @@ export function isVueFile(path: string) {
 	return path.endsWith('.vue');
 }
 
+export function isSvelteFile(path: string) {
+	return path.endsWith('.svelte');
+}
+
 export function getVueSCSSRegions(content: string) {
 	const regions: Region[] = [];
 	const startRe = /<style[\w=\"\' \n\t]{1,}lang=[\"\']scss[\"\'][\w=\"\' \n\t]{0,}>/g;
@@ -42,7 +46,7 @@ function convertVueTextDocument(document: TextDocument, regions: Region[]) {
 
 export function getSCSSRegionsDocument(document: TextDocument, position: Position) {
 	const offset = document.offsetAt(position);
-	if (!isVueFile(document.uri)) {
+	if (!isVueFile(document.uri) && !isSvelteFile(document.uri)) {
 		return { document, offset };
 	}
 
