@@ -30,6 +30,7 @@ Just install the plugin and use it.
 * Show all All Symbol Definitions in Folder (variables, mixin, functions) — [description](http://code.visualstudio.com/docs/extensions/language-support#_show-all-all-symbol-definitions-in-folder)
 * Import files by `@import "filepath";` from anywhere. Even outside of the open workspace.
 * Support vue file scss block.
+* Support svelte file scss block.
 
 ## Supported settings
 
