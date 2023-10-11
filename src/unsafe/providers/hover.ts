@@ -93,7 +93,7 @@ function getSymbol(symbolList: IDocumentSymbols[], identifier: Identifier, curre
 		for (let j = 0; j < symbolsByType.length; j++) {
 			const symbol = symbolsByType[j];
 
-			if (symbol && symbol.name === identifier.name) {
+			if (symbol && symbol.name === `$${identifier.name}`) {
 				return {
 					document: symbols.document,
 					path: fsPath,
@@ -121,7 +121,7 @@ export async function doHover(document: TextDocument, offset: number, storage: S
 
 		if (parent.type !== NodeType.VariableDeclaration && parent.type !== NodeType.FunctionParameter) {
 			identifier = {
-				name: hoverNode.getName(),
+				name: hoverNode.getName().replace("$", ""),
 				type: 'variables'
 			};
 		}

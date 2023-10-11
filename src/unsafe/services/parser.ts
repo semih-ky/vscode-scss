@@ -50,7 +50,7 @@ async function findDocumentSymbols(document: TextDocument, ast: INode): Promise<
 
 		if (symbol.kind === SymbolKind.Variable) {
 			result.variables.push({
-				name: symbol.name,
+				name: symbol.name.replace("$", ""),
 				offset,
 				position,
 				value: getVariableValue(ast, offset)
